@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather-App</title>
+</head>
+<body>
+
+    <div id="top-bar">
+        <h1 class="title">Weather App</h1>
+        <form onsubmit="return false">
+            <input type="text" class="textInput" id="textInput" required>
+            <button class="btnSubmit" id="btnSubmit">Submit</button>
+        </form>
+    </div>
+
+    <div id="currentWeatherInfo">
+        <div id="leftSideDaily">
+            <h3 id="cityName">Lovech</h3>
+            <p id="temperature">23° C</p>
+            <p id="wind">Wind: 4.86 m/s</p>
+        </div>
+
+        <div id="rightSideDaily">
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="iconWeather" alt="img">
+            <p id="weather">Clouds</p>
+        </div>
+    </div>
+
+    <div class="weeklyWeatherInfo">
+        <div class="day" id="day1">
+            <div class="leftSideWeekly">
+                <p>Monday</p>
+            </div>
+            <div class="rightSideWeekly">
+                <p>23° C</p>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" id="iconWeather" alt="img">
+            </div>
+        </div>
+        <div class="day" id="day2">
+            <div class="leftSideWeekly">
+                <p>Monday</p>
+            </div>
+            <div class="rightSideWeekly">
+                <p>23° C</p>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" id="iconWeather" alt="img">
+            </div>
+        </div>
+        <div class="day" id="day3">
+            <div class="leftSideWeekly">
+                <p>Monday</p>
+            </div>
+            <div class="rightSideWeekly">
+                <p>23° C</p>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" id="iconWeather" alt="img">
+            </div>
+        </div>
+        <div class="day" id="day4">
+            <div class="leftSideWeekly">
+                <p>Monday</p>
+            </div>
+            <div class="rightSideWeekly">
+                <p>23° C</p>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" id="iconWeather" alt="img">
+            </div>
+        </div>
+        <div class="day" id="day5">
+            <div class="leftSideWeekly">
+                <p>Monday</p>
+            </div>
+            <div class="rightSideWeekly">
+                <p>23° C</p>
+                <img src="http://openweathermap.org/img/wn/10d@2x.png" id="iconWeather" alt="img">
+            </div>
+        </div>
+
+    </div>
+
+
+    
+    <script src="main.js"></script>
+</body>
+</html>

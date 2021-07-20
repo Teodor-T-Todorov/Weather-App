@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+}
+
+#top-bar{
+    text-align: center;
+    background-color: #48484a;
+    color: white;
+    padding: 1%;
+}
+
+#currentWeatherInfo{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#leftSideDaily{
+    display: flex;
+    flex-direction: column;
+}
+
+#rightSideDaily{
+    text-align: center;
+}
+
+.day{
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftSideWeekly{
+    margin: auto 0 auto 0;
+}
+
+.rightSideWeekly{
+    display: flex;
+    align-items: center;
+}

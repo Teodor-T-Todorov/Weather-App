@@ -1,17 +1,59 @@
+html{
+    min-height: 100%;
+}
+
 body{
     margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: linear-gradient(to bottom,#84bece, #b7ebfa);
 }
 
 #top-bar{
     text-align: center;
-    background-color: #48484a;
     color: white;
     padding: 1%;
 }
 
+#titleContainer{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.fas{
+    font-size: x-large;
+    margin-left: 10px;
+}
+
+#textInput{
+    padding: 5px;
+    margin-right: 6px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgb(30 30 30 / 14%);
+    border-radius: 3px;
+}
+
+#btnSubmit{
+    padding: 1.4% 3%;
+    background-color: white;
+    color: black;
+    border: 0;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+}
+
+#btnSubmit:hover {
+    background-color: #ff7800; /* Green */
+    color: white;
+  }
+
 #currentWeatherInfo{
     display: flex;
     justify-content: space-evenly;
+    margin: 6% 3% 4% 3%;
+    background-color: #42a5c08a;
+    border-radius: 1%;
+    box-shadow: 1px 1px 1px 1px #3277936e;
 }
 
 #leftSideDaily{
@@ -23,6 +65,17 @@ body{
     text-align: center;
 }
 
+#weather{
+    margin-top: 0;
+}
+
+#weeklyWeatherInfo{
+    margin: 4% 3% 4% 3%;
+    background-color: #42a5c08a;
+    border-radius: 1%;
+    box-shadow: 1px 1px 1px 1px #3277936e;
+}
+
 .day{
     display: flex;
     justify-content: space-around;
@@ -30,6 +83,8 @@ body{
 
 .leftSideWeekly{
     margin: auto 0 auto 0;
+    width: 30%;
+    text-align: center;
 }
 
 .rightSideWeekly{

@@ -1,7 +1,7 @@
 const btnSubmit = document.querySelector('#btnSubmit');
 const textInput = document.querySelector('#textInput');
 const container = document.querySelector('#container');
-
+const weekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 
 const getWeatherInfo = async (city) =>{
@@ -45,21 +45,7 @@ const createCurrentWeatherHTML = (city) => {
     currentWeatherInfo.append(leftSide, rightSide);
 
     container.append(currentWeatherInfo);
-
-    getWeatherInfo(city)
-    .then((data) => {
-        console.log(data);
-        cityName.innerText = data.city.name;
-        tempDaily.innerText = `${data.list[0].main.temp}° C`;
-        wind.innerText = `Wind: ${data.list[0].wind.speed} m/s`;
-        iconWeather.src = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
-        weather.innerText = data.list[0].weather[0].main;
-    })
 }
-
-const weekArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const birthday = new Date("2021-07-25 18:00:00");
-console.log(birthday.getHours())
 
 const createWeeklyWeatherHTML = (city) => {
     const weeklyWeatherInfo = document.createElement('div');
@@ -75,6 +61,7 @@ const createWeeklyWeatherHTML = (city) => {
 
         const dayOfTheWeek = document.createElement('p');
         dayOfTheWeek.setAttribute('class', 'dayOfTheWeek');
+        dayOfTheWeek.setAttribute('id', `dayOfTheWeek${i}`);
 
         leftSideWeekly.append(dayOfTheWeek);
 
@@ -82,26 +69,48 @@ const createWeeklyWeatherHTML = (city) => {
         rightSideWeekly.setAttribute('class', 'rightSideWeekly');
         const tempWeekly = document.createElement('p');
         tempWeekly.setAttribute('class', 'tempWeekly');
+        tempWeekly.setAttribute('id', `tempWeekly${i}`);
         const iconWeather = document.createElement('img');
         iconWeather.setAttribute('src', '');
         iconWeather.setAttribute('class', 'iconWeatherWeekly');
+        iconWeather.setAttribute('id', `iconWeatherWeekly${i}`);
         rightSideWeekly.append(tempWeekly, iconWeather);
 
         day.append(leftSideWeekly, rightSideWeekly);
         weeklyWeatherInfo.append(day);
-
-        getWeatherInfo(city)
-            .then(data => {
-                const dateToday = new Date(data.list[0].dt_txt);
-                dayOfTheWeek.innerText = weekArray[dateToday.getDay() + i];
-                const index12hours = ((24 - dateToday.getHours()) / 3) + (4 + (i-1)*8);
-                tempWeekly.innerText = `${data.list[index12hours].main.temp}° C`;
-                iconWeather.src = `http://openweathermap.org/img/wn/${data.list[index12hours].weather[0].icon}@2x.png`;
-
-            })
     }
 
     container.append(weeklyWeatherInfo);
+}
+
+const renderData = (city) => {
+
+    getWeatherInfo(city)
+    .then(data => {
+        console.log(data);
+        // Daily div
+        document.querySelector('#cityName').innerText = data.city.name;
+        document.querySelector('#tempDaily').innerText = `${data.list[0].main.temp}° C`;
+        document.querySelector('#wind').innerText = `Wind: ${data.list[0].wind.speed} m/s`;
+        document.querySelector('#iconWeatherDaily').src = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
+        document.querySelector('#weather').innerText = data.list[0].weather[0].main;
+
+        // Weekly div
+        for(let i = 1; i <= 5; i++){
+            console.log(i);
+            const dateToday = new Date(data.list[0].dt_txt);
+            document.querySelector(`#dayOfTheWeek${i}`).innerText = weekArray[(dateToday.getDay() + i) % 7];
+            const index12hours = ((24 - dateToday.getHours()) / 3) + (4 + (i-1)*8);
+            document.querySelector(`#tempWeekly${i}`).innerText = `${data.list[index12hours].main.temp}° C`;
+            document.querySelector(`#iconWeatherWeekly${i}`).src = `http://openweathermap.org/img/wn/${data.list[index12hours].weather[0].icon}@2x.png`;
+        }
+    })
+    .catch(err => {
+        console.log(`Error message:${err.message}`);
+        document.querySelector('#currentWeatherInfo').remove();
+        document.querySelector('#weeklytWeatherInfo').remove();
+
+    });
 }
 
 btnSubmit.addEventListener('click', () => {
@@ -109,7 +118,10 @@ btnSubmit.addEventListener('click', () => {
         document.querySelector('#currentWeatherInfo').remove();
         document.querySelector('#weeklyWeatherInfo').remove();
     }
-    createCurrentWeatherHTML(textInput.value);
-    createWeeklyWeatherHTML(textInput.value);
+
+    const city = textInput.value;
+    createCurrentWeatherHTML(city);
+    createWeeklyWeatherHTML(city);
+    renderData(city);
 })
 

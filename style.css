@@ -91,3 +91,32 @@ body{
     display: flex;
     align-items: center;
 }
+
+@media only screen and (min-width: 768px){
+
+    #searchWeather{
+        display: flex;
+        justify-content: center;
+    }
+
+    #btnSubmit{
+        padding: 0 2%;
+    }
+
+    #container{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 3%;
+    }
+
+    #currentWeatherInfo{
+        margin-top: 0;
+        width: 35%;
+    }
+
+    #weeklyWeatherInfo{
+        margin-top: 0;
+        width: 35%;
+    }
+
+}

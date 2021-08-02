@@ -9,7 +9,3 @@ Functionality:
 Goals from the project:
 - Learn using async functions
 - Learn using an API
-
----
-permalink: /index.html
----

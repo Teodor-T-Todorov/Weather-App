@@ -47,21 +47,28 @@ body{
     color: white;
   }
 
-#currentWeatherInfo{
+#dailyContainer{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: space-around;
     margin: 6% 3% 4% 3%;
     background-color: #42a5c08a;
     border-radius: 1%;
     box-shadow: 1px 1px 1px 1px #3277936e;
 }
 
-#leftSideDaily{
+#currentWeather{
+    display: flex;
+    justify-content: space-around;
+    font-size: large;
+}
+
+#lhsCurrent{
     display: flex;
     flex-direction: column;
 }
 
-#rightSideDaily{
+#rhsCurrent{
     text-align: center;
 }
 
@@ -69,7 +76,20 @@ body{
     margin-top: 0;
 }
 
-#weeklyWeatherInfo{
+#dailyWeather{
+    display: flex;
+    text-align: center;
+}
+
+.iWeatherDaily{
+    width: 100%;
+}
+
+.tempDaily{
+    font-size: small;
+}
+
+#weeklyContainer{
     margin: 4% 3% 4% 3%;
     background-color: #42a5c08a;
     border-radius: 1%;
@@ -81,13 +101,13 @@ body{
     justify-content: space-around;
 }
 
-.leftSideWeekly{
+.lhsWeekly{
     margin: auto 0 auto 0;
     width: 30%;
     text-align: center;
 }
 
-.rightSideWeekly{
+.rhsWeekly{
     display: flex;
     align-items: center;
 }
@@ -109,14 +129,14 @@ body{
         margin-top: 3%;
     }
 
-    #currentWeatherInfo{
+    #dailyContainer{
         margin-top: 0;
-        width: 35%;
+        width: 40%;
     }
 
-    #weeklyWeatherInfo{
+    #weeklyContainer{
         margin-top: 0;
-        width: 35%;
+        width: 40%;
     }
 
 }

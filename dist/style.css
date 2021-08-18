@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
 html{
     min-height: 100%;
 }
@@ -6,6 +18,10 @@ body{
     margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
     background: linear-gradient(to bottom,#84bece, #b7ebfa);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #top-bar{
@@ -78,7 +94,13 @@ body{
 
 #dailyWeather{
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
+}
+
+.dailyWeatherInfo{
+    flex: 1 0 21%;
+    margin: 5px;
 }
 
 .iWeatherDaily{
@@ -86,7 +108,7 @@ body{
 }
 
 .tempDaily{
-    font-size: small;
+    margin-top: 0;
 }
 
 #weeklyContainer{
@@ -112,6 +134,26 @@ body{
     align-items: center;
 }
 
+#footer {
+    font-size: large;
+    background-color: RGB(108, 186, 208);
+    text-align: center;
+}
+
+.footerText{
+    margin-bottom: 4px;
+}
+
+#footer
+a{
+    font-size: larger;
+}
+
+#footer
+a:hover{
+    color: #ff7800;
+}
+
 @media only screen and (min-width: 768px){
 
     #searchWeather{
@@ -134,9 +176,22 @@ body{
         width: 40%;
     }
 
+    #dailyWeather{
+        flex-wrap: nowrap;
+    }
+
+    .dailyWeatherInfo {
+        flex: auto;
+    }
+
+    .dailyWeatherInfo
+    .tempDaily{
+        font-size: small;
+    }
+
     #weeklyContainer{
         margin-top: 0;
         width: 40%;
-    }
+    }   
 
 }

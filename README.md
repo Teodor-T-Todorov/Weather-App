@@ -1,5 +1,10 @@
 # Weather App
-Weather application written in vanilla Javascript that uses OpenWeather API to take the data. 
+
+### Link to the app
+**https://teodor-t-todorov.github.io/Weather-App/**
+
+### Description
+Weather application written in vanilla Javascript that uses OpenWeather API to display the data.
 
 ### Functionality:
 - Shows the weather anywhere in the world.
